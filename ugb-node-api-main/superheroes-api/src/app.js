@@ -5,9 +5,10 @@ const Hero = require("./models/Hero.js");
 const heroRoutes = require("./routes/heroes.routes.js")
 
 const app = express();
+app.use(express.json());
 
 Hero.belongsToMany(Movie, {
-    through: "HeroesMovies"
+    through: "HeroMovies"
 })
 
 Movie.belongsToMany(Hero, {
